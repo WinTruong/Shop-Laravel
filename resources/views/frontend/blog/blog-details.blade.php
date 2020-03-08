@@ -141,6 +141,7 @@
 						</div><!--/shipping-->
 					</div>
 				</div>
+				aaaaaaaaaaaaaaaaa
 				<div class="col-sm-9">
 					<div class="blog-post-area">
 						<h2 class="title text-center">Latest From our Blog</h2>
