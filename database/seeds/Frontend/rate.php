@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Seeder;
 
-class blog extends Seeder
+class rate extends Seeder
 {
     /**
      * Run the database seeds.
@@ -11,11 +11,10 @@ class blog extends Seeder
      */
     public function run()
     {
-        DB::table('blogs')->insert([
-            'user_id' => 1,
-        	'tittle' => Str::random(3),
-        	'image' => "148600.jpg",
-        	'content' => 'File seed',
+        DB::table('rates')->insert([
+        	'blog_id' => 1,
+        	'user_id' => 1,
+        	'vote' => 4,
             'created_at' => \Carbon\Carbon::now()
         ]);
     }

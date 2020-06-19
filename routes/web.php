@@ -11,24 +11,19 @@
 |
 */
 
-
-Route::get('/home', function() {
+/*Test view*/
+Route::get('/welcome', function() {
 	return view('welcome');
 });
-Route::get('/testlogin', 'HomeWorkController@test1');
-Route::post('/testlogin', 'HomeWorkController@handleForm');
-Route::post('/testlogin', 'HomeWorkController@testPost');
-Route::get('/testlogin1', 'UsersController@getInform');
-Route::post('/testlogin1', 'UsersController@updateFirstInform');
-Route::get('/welcome', function() {
+Route::get('/home', function() {
     return view('home');
 });
 Route::get('/test', function() {
-    return view('layouts/app');
+    return view('test');
 });
 
 
-
+// Phan User
 Route::group([
     'namespace' => 'Frontend'
 ], function() {
@@ -36,11 +31,8 @@ Route::group([
     Route::get('/', 'SaleWebController@index')->name('frontend.index');
     Route::get('/cart', 'SaleWebController@cart');
 
-    Route::get('/blog', 'BlogController@index')->name('blog.display');
-    Route::get('/blog-details/{id}', 'BlogController@show');
-    Route::post('/blog-details/{id}', 'BlogController@storeComment');
-    Route::post('/blog/ajax', 'BlogController@rateAjax');
-
+    Route::get('/blog', 'BlogController@index')->name('blog.index');
+    Route::get('/blog-details/{id}', 'BlogController@show')->name('blog.details');
 
     Route::get('/checkout', 'SaleWebController@checkout');
     Route::get('/contact-us', 'SaleWebController@contact');
@@ -67,14 +59,15 @@ Route::group([
     ], function () {
         Route::get('/logout', 'MemberController@logout');
 
+        Route::post('/blog-details/{id}', 'BlogController@storeComment')->name('comment.post');
+        Route::post('/blog/ajax', 'BlogController@rateAjax')->name('rate.ajax');
+
+        Route::get('/account', 'MemberController@accountShowInform')->name('account');
+
     });
-
-
-
-    
 });
 
-// admin
+// Phan Admin
 Auth::routes();
 //Login manager Route
 Route::group([
@@ -87,7 +80,6 @@ Route::group([
     Route::get('/logout', 'LoginController@logout');
 });
 
-
 // Điều hướng sau khi login
 Route::group([
     'prefix' => 'admin',
@@ -99,6 +91,7 @@ Route::group([
     Route::get('/profile', 'UserController@index')->name('admin.user');
     Route::post('/profile', 'UserController@update');
     Route::get('/member-list', 'UserController@show');
+    Route::get('/member-list/delete/{id}', 'UserController@destroy');
 
     Route::get('/countries', 'CountryController@show')->name('admin.country');
     Route::get('/countries/add-country', 'CountryController@create')->name('country.add');

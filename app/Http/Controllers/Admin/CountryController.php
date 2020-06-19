@@ -46,7 +46,7 @@ class CountryController extends Controller
     public function store(CountryRequest $request)
     {
         $newc = new country();
-        $newc->name_country = $request->name_country;
+        $newc->name = $request->name;
         if($newc->save()) {
             return redirect()->back()->with('success', __('Insert a new country success'));
 

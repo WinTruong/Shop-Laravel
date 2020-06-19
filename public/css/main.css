@@ -48,6 +48,14 @@ a {
     transition: 300ms;
 }
 
+a.tittle-blog {
+    text-decoration: none;
+    color: #696763;
+}
+a.tittle-blog:hover {
+    color: #fdb45e;
+}
+
 h1,
 h2,
 h3,
@@ -56,6 +64,7 @@ h5,
 h6 {
     font-family: 'Roboto', sans-serif;
 }
+
 
 .btn:hover,
 .btn:focus {

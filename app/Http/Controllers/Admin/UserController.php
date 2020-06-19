@@ -112,8 +112,14 @@ class UserController extends Controller
      * @param  \App\Models\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function destroy(User $user)
+    public function destroy($id)
     {
-        //
+        $deleteUser = User::findOrFail($id);
+        if($deleteUser) {
+            User::where('id', $id)->delete();
+            return redirect()->back()->with('success', __('Đã xóa người dùng thành công'));
+        } else {
+            return redirect()->back()->withErrors('Có lỗi xảy ra, xin hãy thử lại');
+        }
     }
 }

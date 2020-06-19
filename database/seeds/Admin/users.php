@@ -12,11 +12,18 @@ class users extends Seeder
     public function run()
     {
         DB::table('users')->insert([
-    		'name'=> Str::random(12),
-    		'email' =>Str::random(12).'@gmail.com',
+    		'name' => "tructruong",
+    		'email' => "tt@gmail.com",
     		'password' => bcrypt('123123123'),
-            'avatar' => 'd3.jpg',
+            'level' => 1,
+            'created_at' => \Carbon\Carbon::now()
+        ]);
+        DB::table('users')->insert([
+            'name' => "ttt",
+            'email' => "t3t@gmail.com",
+            'password' => bcrypt('123123123'),
             'level' => 0,
+            'created_at' => \Carbon\Carbon::now()
         ]);
     }
 }

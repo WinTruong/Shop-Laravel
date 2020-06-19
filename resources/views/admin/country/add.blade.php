@@ -59,7 +59,7 @@
                                 @endif
                                 <label class="col-md-12">Country</label>
                                 <div class="col-md-12">
-                                    <input name="name_country" type="text" placeholder="" class="form-control form-control-line">
+                                    <input name="name" type="text" placeholder="" class="form-control form-control-line">
                                     <button type="submit">Create</button>
                                 </div>
                             </div>

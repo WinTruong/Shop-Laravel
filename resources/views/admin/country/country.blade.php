@@ -60,11 +60,11 @@
                                     <tbody>
                                         @foreach ($countries as $country)
                                             <tr>
-                                                <td colspan="2"> {{ $country->name_country }}</td>
+                                                <td colspan="2"> {{ $country->name }}</td>
                                                 <td colspan="3">
-                                                    <a class="edit-country" href="{{ url('admin/countries/edit/'.$country->id_country) }}">Edit</a>
+                                                    <a class="edit-country" href="{{ url('admin/countries/edit/'.$country->id) }}">Edit</a>
                                                      | 
-                                                    <a class="delete-country" href="{{ url('admin/countries/delete/'.$country->id_country) }}">Delete</a>
+                                                    <a class="delete-country" href="{{ url('admin/countries/delete/'.$country->id) }}">Delete</a>
                                                 </td>
                                             </tr>
                                         @endforeach

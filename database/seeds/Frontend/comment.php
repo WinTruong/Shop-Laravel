@@ -12,11 +12,18 @@ class comment extends Seeder
     public function run()
     {
         DB::table('comments')->insert([
-    		'blog_id'=> 3,
+    		'blog_id' => 1,
     		'user_id' => 1,
-    		'avatar' => '_uhdanimals71.jpg',
             'comment' => 'Thôi thua',
-            'id_comment' => 0,
+            'created_at' => \Carbon\Carbon::now()
+        ]);
+        
+        DB::table('comments')->insert([
+            'blog_id'=> 1,
+            'user_id' => 1,
+            'comment' => 'Thôi thua2',
+            'id_comment' => 1,
+            'created_at' => \Carbon\Carbon::now()
         ]);
     }
 }

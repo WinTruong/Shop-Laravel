@@ -137,11 +137,11 @@
                                         <div class="col-sm-12">
                                             <select name="country" class="form-control form-control-line">
                                                 @foreach($getAllCountry as $key => $value)
-                                                    <option value="{{ $value['id_country'] }}" 
-                                                    @if($value['id_country'] == $getInformProfile['country'])
+                                                    <option value="{{ $value['id'] }}" 
+                                                    @if($value['id'] == $getInformProfile['country'])
                                                         selected="selected"
                                                     @endif
-                                                    >{{ $value['name_country'] }}</option>
+                                                    >{{ $value['name'] }}</option>
                                                 @endforeach
                                             </select>
                                         </div>

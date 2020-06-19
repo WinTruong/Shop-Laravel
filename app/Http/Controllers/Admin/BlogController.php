@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 use App\Models\blog;
 use Illuminate\Http\Request;
 use App\Http\Requests\Admin\BlogRequest;
@@ -47,8 +48,10 @@ class BlogController extends Controller
         $blog = new blog();
         $data = $request->all();
         $file = $request->image;
+        $data['user_id'] = Auth::user()->id;
         $data['content'] = trim($data['content']);
         $data['des'] = trim($data['des']);
+        
         if(!empty($file)) {
             $data['image'] = $file->getClientOriginalName();
         }
@@ -130,6 +133,8 @@ class BlogController extends Controller
         if($deleteblog) {
             blog::where('id',$id)->delete();
             return redirect()->back()->with('success',__('Đã xóa blog thành công'));
+        } else {
+            return redirect()->back()->withErrors('Có lỗi xảy ra, xin hãy thử lại');
         }
     }
 }

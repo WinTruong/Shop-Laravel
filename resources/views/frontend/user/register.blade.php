@@ -1,11 +1,11 @@
 @extends('frontend.master.master')
 @section('content')
-	<section id="form" style="margin-top: 0;"><!--form-->
+	<section id="form" style="margin: auto;"><!--form-->
 		<div class="container">
    			<div class="row">
-				<div class="col-md-8" style="float: none;margin: auto;">
+				<div class="col-md-6" style="float: none;margin: auto;">
 					<div class="signup-form"><!--sign up form-->
-						<h2 style="text-align: center;">New User Signup!</h2>
+						<h2>New User Signup!</h2>
 						@if(Session::has('error'))
 							<div class="alert alert-danger">
 								<ul>
@@ -38,7 +38,7 @@
                                 </span>
                             @enderror
                             
-							<button type="submit" class="btn btn-default" style="margin: auto;">Signup</button>
+							<button type="submit" class="btn btn-default">Signup</button>
 						</form>
 					</div><!--/sign up form-->
 				</div>

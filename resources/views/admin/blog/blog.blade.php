@@ -69,7 +69,7 @@
                                                 <td> {!! $blog->des !!} </td>
                                                 <td>
                                                     <a class="add-blog" href="{{ url('admin/blogs/edit/'.$blog->id) }}">Edit</a>
-                                                    |
+                                                    <hr>
                                                     <a class="add-blog" href="{{ url('admin/blogs/delete/'.$blog->id) }}">Delete</a>
                                                 </td>
                                             </tr>

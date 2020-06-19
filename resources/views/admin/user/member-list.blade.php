@@ -55,7 +55,7 @@
                                             <th scope="col">Level</th>
                                             <th scope="col">Create</th>
                                             <th scope="col">Update</th>
-                                            <th scope="col"></th>
+                                            <th scope="col" colspan="2"></th>
                                             <!-- <th scope="col"><a class="add-country" href="countries/add-country">Add</a></th> -->
                                         </tr>
                                     </thead>
@@ -64,14 +64,15 @@
                                             <tr>
                                                 <td> {{ $member->id }}</td>
                                                 <td> {{ $member->name }}</td>
+                                                <td> {{ $member->email }}</td>
                                                 <td> {{ $member->level }}</td>
                                                 <td> {{ $member->created_at }}</td>
                                                 <td> {{ $member->updated_at }}</td>
-                                                @if($member->id != Auth::user()->id)
-                                                    <td>
-                                                        <a class="delete-country" href="{{ url('admin/member-list/delete/'.$member->id) }}">Delete</a>
-                                                    </td>
-                                                @endif
+                                            @if($member->id != Auth::user()->id)
+                                                <td>
+                                                    <a class="delete-country" href="{{ url('admin/member-list/delete/'.$member->id) }}">Delete</a>
+                                                </td>
+                                            @endif
                                             </tr>
                                         @endforeach
                                     </tbody>

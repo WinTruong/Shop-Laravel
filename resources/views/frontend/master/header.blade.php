@@ -30,7 +30,7 @@
 			<div class="row">
 				<div class="col-md-4 clearfix">
 					<div class="logo pull-left">
-						<a href="index.html"><img src="images/home/logo.png" alt="" /></a>
+						<a href="{{ url('/') }}"><img src="{{ asset('images/home/logo.png') }}" alt="" /></a>
 					</div>
 					<div class="btn-group pull-right clearfix">
 						<div class="btn-group">
@@ -59,8 +59,17 @@
 				<div class="col-md-8 clearfix">
 					<div class="shop-menu clearfix pull-right">
 						<ul class="nav navbar-nav">
-							<li><a href=""><i class="fa fa-user"></i> Account</a></li>
-							<li><a href=""><i class="fa fa-star"></i> Wishlist</a></li>
+							<li>
+							@if(Auth::check())
+								<a href="{{ url('member/account') }}"><i class="fa fa-user"></i>
+									{{Auth::user()->name}}
+								</a></li>
+							@else
+								<a href="{{ url('member/login') }}"><i class="fa fa-user"></i>
+									Account
+								</a></li>
+							@endif
+							<li><a href="#"><i class="fa fa-star"></i> Wishlist</a></li>
 							<li><a href="{{ url('checkout') }}"><i class="fa fa-crosshairs"></i> Checkout</a></li>
 							<li><a href="{{ url('cart') }}"><i class="fa fa-shopping-cart"></i> Cart</a></li>
 							@if(Auth::check())
@@ -97,7 +106,9 @@
 									<li><a href="{{ url('product-details') }}">Product Details</a></li> 
 									<li><a href="{{ url('checkout') }}">Checkout</a></li> 
 									<li><a href="{{ url('cart') }}">Cart</a></li> 
+								@if(!Auth::check())
 									<li><a href="{{ url('member/login') }}">Login</a></li> 
+								@endif
                                 </ul>
                             </li> 
 							<li class="dropdown"><a href="#">Blog<i class="fa fa-angle-down"></i></a>

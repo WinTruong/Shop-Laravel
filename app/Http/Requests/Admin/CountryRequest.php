@@ -24,7 +24,7 @@ class CountryRequest extends FormRequest
     public function rules()
     {
         return [
-            'name_country' => 'bail|required|string|max:255|unique:countries',
+            'name' => 'bail|required|string|max:255|unique:countries',
         ];
     }
 

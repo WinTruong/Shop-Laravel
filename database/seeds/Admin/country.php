@@ -12,7 +12,8 @@ class country extends Seeder
     public function run()
     {
         DB::table('countries')->insert([
-    		'name_country'=> Str::random(3),
+    		'name'=> "England",
+            'created_at' => \Carbon\Carbon::now()
         ]);
     }
 }
