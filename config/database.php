@@ -48,7 +48,7 @@ return [
             'url' => env('DATABASE_URL'),
             'host' => 'db4free.net',
             'port' => '3306',
-            'database' => 'sellingweb',
+            'database' => 'truclaravel',
             'username' => 'tttruc',
             'password' => 'thanhhthang',
             'unix_socket' => env('DB_SOCKET', ''),
